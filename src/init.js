@@ -22,13 +22,32 @@ $(document).ready(function(){
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    //
 
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
+
+  $('.moveStuff').on('click', function(event){
+    var x = 0;
+    for (var i = 0; i<window.dancers.length; i++){
+      if (x<document.body.clientWidth){
+        window.dancers[i].setPosition(100,x);
+        x+=50;
+      }
+    }
+  });
+
+  $('.square').on('click', function (item){
+    alert('dude');
+    $(this).css({backgroundColor: 'red'});
+  });
 });
+
+
 
