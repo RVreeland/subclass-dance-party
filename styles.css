@@ -3,14 +3,15 @@ body, html{
 }
 body{
   margin: 0px;
-  background-image: url(http://fc09.deviantart.net/fs71/f/2011/256/c/d/8_bit_night_city_by_supermanosbros-d49qyg2.png);
-  font-size: 18px;
-  background-repeat: no repeat;
+  background-image: url("dancers/ViridianCity.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .moveStuff{
   padding:5px 12px;
   float:right;
 }
@@ -22,20 +23,12 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
   position:absolute;
+
+
+
 }
 .square{
   border-radius: 0px;
   position:absolute;
-  border:10px solid orange;
-}
 
-.bird {
-  border-radius: 0px;
-  position:absolute;
-  background-color: blue;
-  border: none;
-
-}

@@ -1,7 +1,6 @@
 var Bird = function (top, left, timeBetweenSteps){
   // this.$node = $('<span class="square"></span>');
   Dancer.apply(this,arguments);
-  this.$node.addClass("bird");
 
 }
 

@@ -16,6 +16,7 @@ $(document).ready(function(){
      * to the stage.
      */
 
+
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
@@ -43,9 +44,13 @@ $(document).ready(function(){
     }
   });
 
-  $('.square').on('click', function (item){
-    alert('dude');
-    $(this).css({backgroundColor: 'red'});
+
+
+  $('body').on('mouseover','.bird', function (item){
+    var randomColor =
+    $(this).css({backgroundColor: '#' + Math.random()});
+  }).on('mouseleave','.bird', function (item){
+     $(this).css({backgroundColor: 'blue'});
   });
 });
 
