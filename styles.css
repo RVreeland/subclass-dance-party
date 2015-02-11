@@ -50,3 +50,17 @@ body, a:link, a:visited, a:active{
 @-webkit-keyframes sideToSide {
   50% { -webkit-transform: translateX(10px);}
 }
+
+.sideways {
+  transform-origin: bottom center;
+  -webkit-animation: sideways 1s infinite;
+}
+
+.ball {
+  height: 150px;
+  display: none;
+}
+
+@-webkit-keyframes sideways {
+  50% { -webkit-transform: translateX(15px) rotate(30deg);}
+}
