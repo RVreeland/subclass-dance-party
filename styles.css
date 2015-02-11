@@ -22,13 +22,22 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer{
+.dancer, .chansey{
   position:absolute;
-
-
-
 }
-.square{
-  border-radius: 0px;
-  position:absolute;
 
+.rotate {
+  -webkit-animation: rotate 2s infinite 0s;
+}
+
+@-webkit-keyframes rotate {
+  50% { -webkit-transform: rotate(360deg);}
+}
+
+.jump {
+  -webkit-animation: jump 0.3s infinite 0s;
+}
+
+@-webkit-keyframes jump {
+  50% { -webkit-transform: translateY(-20px);}
+}

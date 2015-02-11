@@ -1,6 +1,7 @@
 $(document).ready(function(){
   window.dancers = [];
 
+//-------------------------------------------------------------
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
@@ -30,21 +31,67 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    window.dancers.push(dancer);
+
+    if (dancer.$node[0].className === "dancer"){
+      window.dancers.push(dancer);
+    }
     $('body').append(dancer.$node);
   });
+//------------------------------------------------------------
 
   $('.moveStuff').on('click', function(event){
     var x = 0;
+    var y = 100;
     for (var i = 0; i<window.dancers.length; i++){
-      if (x<document.body.clientWidth){
-        window.dancers[i].setPosition(100,x);
+      if (x<document.body.clientWidth && y<document.body.clientHeight){
+        window.dancers[i].setPosition(x,y);
+        window.dancers[i].$node.addClass('rotate');
+        y+=25;
         x+=50;
       }
     }
   });
 
+function makeNewPosition(){
+    
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $(window).height() - 50;
+    var w = $(window).width() - 50;
+    
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+    
+    return [nh,nw];    
+    
+}
 
+function animateDiv(){
+    var newq = makeNewPosition();
+    var oldq = $('.dancer').offset();
+    var speed = calcSpeed([oldq.top, oldq.left], newq);
+    
+    $('.dancer').animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animateDiv();        
+    });
+    
+};
+
+function calcSpeed(prev, next) {
+    
+    var x = Math.abs(prev[1] - next[1]);
+    var y = Math.abs(prev[0] - next[0]);
+    
+    var greatest = x > y ? x : y;
+    
+    var speedModifier = 0.1;
+
+    var speed = Math.ceil(greatest/speedModifier);
+
+    return speed;
+
+}
+
+  animateDiv();
 
   $('body').on('mouseover','.bird', function (item){
     var randomColor =
@@ -52,7 +99,8 @@ $(document).ready(function(){
   }).on('mouseleave','.bird', function (item){
      $(this).css({backgroundColor: 'blue'});
   });
-});
 
+
+});
 
 

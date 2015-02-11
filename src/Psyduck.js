@@ -7,12 +7,12 @@ var Psyduck = function(top, left, timeBetweenSteps){
 
 // var oldStep = blinkyDancer.step;
 
-BlinkyDancer.prototype = Object.create(Dancer.prototype);
+Psyduck.prototype = Object.create(Dancer.prototype);
 
-BlinkyDancer.prototype.constructor = BlinkyDancer;
+Psyduck.prototype.constructor = Psyduck;
 
 
-BlinkyDancer.prototype.step = function(){
+Psyduck.prototype.step = function(){
     // call the old version of step at the beginning of any call to this new version of step
    Dancer.prototype.step.call(this);
     // toggle() is a jQuery method to show/hide the <span> tag.
