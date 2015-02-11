@@ -7,11 +7,12 @@ body{
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-position: center;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .moveStuff{
+.title, .addDancerButton, .moveStuff, .throw {
   padding:5px 12px;
   float:right;
 }
@@ -40,4 +41,12 @@ body, a:link, a:visited, a:active{
 
 @-webkit-keyframes jump {
   50% { -webkit-transform: translateY(-20px);}
+}
+
+.caught {
+  -webkit-animation: sideToSide 0.2s infinite;
+}
+
+@-webkit-keyframes sideToSide {
+  50% { -webkit-transform: translateX(10px);}
 }

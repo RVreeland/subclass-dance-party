@@ -1,7 +1,7 @@
 // Creates and returns a new dancer object that can step
 var Dancer = function(top, left, timeBetweenSteps){
 
-  this.$node = $('<img src="dancers/psyduck.gif" height="50%" class="dancer">');
+  this.$node = $('<img src="dancers/psyduck.gif" height="25%" class="dancer pokemon">');
   // this.$node.width('7.5%');
   // this.$node.height('15%');
   this.step();

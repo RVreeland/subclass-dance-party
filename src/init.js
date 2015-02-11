@@ -32,7 +32,7 @@ $(document).ready(function(){
       Math.random() * 1000
     );
 
-    if (dancer.$node[0].className === "dancer"){
+    if (dancer.$node[0].classList.contains("dancer")){
       window.dancers.push(dancer);
     }
     $('body').append(dancer.$node);
@@ -52,47 +52,6 @@ $(document).ready(function(){
     }
   });
 
-function makeNewPosition(){
-    
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 50;
-    var w = $(window).width() - 50;
-    
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
-    
-    return [nh,nw];    
-    
-}
-
-function animateDiv(){
-    var newq = makeNewPosition();
-    var oldq = $('.dancer').offset();
-    var speed = calcSpeed([oldq.top, oldq.left], newq);
-    
-    $('.dancer').animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animateDiv();        
-    });
-    
-};
-
-function calcSpeed(prev, next) {
-    
-    var x = Math.abs(prev[1] - next[1]);
-    var y = Math.abs(prev[0] - next[0]);
-    
-    var greatest = x > y ? x : y;
-    
-    var speedModifier = 0.1;
-
-    var speed = Math.ceil(greatest/speedModifier);
-
-    return speed;
-
-}
-
-  animateDiv();
-
   $('body').on('mouseover','.bird', function (item){
     var randomColor =
     $(this).css({backgroundColor: '#' + Math.random()});
@@ -100,6 +59,15 @@ function calcSpeed(prev, next) {
      $(this).css({backgroundColor: 'blue'});
   });
 
+  $('body').on('mouseover', '.pokemon',function (item){
+    // alert(1);
+    $(this).attr('src','dancers/pokeball.gif');
+    $(this).addClass('caught');
+  });
+
+  $('.throw').on('click', function(event){
+    $('.pokemon').fadeOut();
+  });
 
 });
 
